@@ -1,0 +1,45 @@
+# pyproject.toml
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "plmembedder"
+version = "0.1.0"
+description = "Protein Language Model Embedding Library"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Jason McDermott", email = "Jason.McDermott@pnnl.gov"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+
+dependencies = [
+    "numpy>=1.21.0",
+    "torch>=1.9.0",
+    "tqdm>=4.62.0",
+]
+
+[project.optional-dependencies]
+esm = ["fair-esm>=2.0.0"]
+protbert = ["transformers>=4.20.0", "sentencepiece"]
+prott5 = ["transformers>=4.20.0", "sentencepiece"]
+all = [
+    "fair-esm>=2.0.0",
+    "transformers>=4.20.0",
+    "sentencepiece",
+]
+
+[project.scripts]
+plmembedder = "plmembedder.__main__:main"
+plmembed = "plmembedder.__main__:main"
